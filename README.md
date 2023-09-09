@@ -67,6 +67,19 @@ This seems like a pretty basic (and obvious) list, but at this point in my learn
 One thing I struggled with on this project was creating the blank cells in the grid.  I knew they needed to be divs but I couldn't get them to maintain a size that made sense.  After some research I found a similar project that calculated the size in their script by dividing the number of cols or rows by the size of the container, and that solution worked for me.
 
 ```
+
 let pixelWidth = 640/size + "px";
 let pixelHeight = 640/size + "px";
+
+```
+
+This project is the one of the first time I really tried to manipulate the DOM with JavaScript, and I had trouble implementing the button to clear the grid.  I wanted to write a function that would clear out the container so that my createGrid function could make a new one.  I also needed that function to empty the grid to make a new one of a different size.  I found a useful question on stackoverflow that recommeded removing the lastchild until there were no more.  I was pretty happy with the function I came up with following that advice.
+
+```
+function clearGrid() {
+    while(gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.lastChild);
+    }
+}
+
 ```
